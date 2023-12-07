@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="flex flex-col col-lg-6 margin-tb m-6">
-        <div class="pull-left mx-4 py-2">
+        <div class="pull-left">
             <p class="text-2xl font-bold">DATA KRITERIA</p>
         </div>
     </div>
@@ -93,7 +93,7 @@
                 <th scope="col" class="px-6 py-3">
                     Jenis Kriteria
                 </th>
-                <th scope="col" class="px-3 py-2">
+                <th scope="col" class="px-6 py-2 text-center">
                     Action
                 </th>
             </tr>
@@ -104,18 +104,18 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ $Kriteria->id }}
                 </th>
-                <td class="px-6 py-4">
+                <td class="px-6">
                     {{ $Kriteria->nama_kriteria }}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6">
                     {{ $Kriteria->bobot_kriteria }}
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6">
                     {{ $Kriteria->jenis_kriteria }}
                 </td>
-                <td class="px-6 py-4"> 
+                <td class="px-6">
                     <div class="flex items-center">
-                      <button data-modal-target="crud-modal-{{ $Kriteria->id }}" data-modal-toggle="crud-modal-{{ $Kriteria->id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                      <button data-modal-target="crud-modal-{{ $Kriteria->id }}" data-modal-toggle="crud-modal-{{ $Kriteria->id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
                         Edit
                       </button>
                       <!-- Main modal -->
@@ -135,7 +135,7 @@
                                           <span class="sr-only">Close modal</span>
                                       </button>
                                   </div>
-                    
+
                                   @if ($errors->any())
                                         <div class="alert alert-danger">
                                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -176,7 +176,7 @@
                               </div>
                           </div>
                       </div>
-                    
+
 
                     <form method="post" action="{{ route('kriteria.destroy', $Kriteria->id) }}" id="deleteForm" enctype="multipart/form-data">
                         @csrf
