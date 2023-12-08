@@ -5,6 +5,7 @@ use App\Models\Alternatif;
 use App\Models\Kriteria;
 use App\Models\DecisionMatrix;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DecisionMatrixController extends Controller
 {
@@ -46,7 +47,7 @@ class DecisionMatrixController extends Controller
         $kriteria = Kriteria::all();
 
         if ($alternatif->isEmpty()) {
-            return view('waspas.index_DecisionMatrix');
+            return redirect()->route('decision-matrix.index');
         }
 
         return view('waspas.create_DecisionMatrix', compact('alternatif', 'kriteria'));
@@ -59,33 +60,39 @@ class DecisionMatrixController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            'value_*_*' => 'required|numeric',
-        ]);
+{
+    $this->validate($request, [
+        'value_*_*' => 'required|numeric',
+    ]);
 
-        try {
-            $alt = Alternatif::all();
-            $krit = Kriteria::all();
+    try {
+        $alternatif = Alternatif::all();
+        $kriteria = Kriteria::all();
 
-            foreach ($alt as $Alt) {
-                if (!$Alt->isUsed()) {
-                    foreach ($krit as $Krit) {
-                        $fieldName = 'value_' . $Alt->id . '_' . $Krit->id;
-                        $dec = new DecisionMatrix;
-                        $dec->id_alternatif = $Alt->id;
-                        $dec->id_kriteria = $Krit->id;
-                        $dec->value = $request->get($fieldName);
-                        $dec->save();
+        foreach ($alternatif as $Alt) {
+            if (!$Alt->isUsed()) {
+                foreach ($kriteria as $Krit) {
+                    $fieldName = 'value_' . $Alt->id . '_' . $Krit->id;
+                    $value = $request->input($fieldName);
+
+                    // Check if the value is not empty before saving
+                    if ($value !== null) {
+                        DecisionMatrix::create([
+                            'id_alternatif' => $Alt->id,
+                            'id_kriteria' => $Krit->id,
+                            'value' => $value,
+                        ]);
                     }
                 }
             }
-
-            return redirect()->route('input-nilai.create')->with('success', 'Nilai Decision Matrix berhasil disimpan.');
-        } catch (\Exception $e) {
-            return redirect()->route('input-nilai.create')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
+
+        return redirect()->route('decision-matrix.create')->with('success', 'Nilai Decision Matrix berhasil disimpan.');
+    } catch (\Exception $e) {
+        return redirect()->route('decision-matrix.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
     }
+}
+
 
     /**
      * Display the specified resource.
@@ -104,7 +111,7 @@ class DecisionMatrixController extends Controller
      * @param  \App\Models\DecisionMatrix  $decisionMatrix
      * @return \Illuminate\Http\Response
      */
-    public function edit(DecisionMatrix $decisionMatrix)
+    public function edit($id_alternatif)
     {
         // Ambil data Decision Matrix berdasarkan id_alternatif
         $matrixData = DecisionMatrix::where('id_alternatif', $id_alternatif)->get();
@@ -126,7 +133,7 @@ class DecisionMatrixController extends Controller
             $matrixTable[$data->id_kriteria] = $data->value;
         }
 
-        return view('waspas.editDecisionMatrix', compact('alternatif', 'kriteria', 'matrixTable'));
+        return view('waspas.edit_DecisionMatrix', compact('alternatif', 'kriteria', 'matrixTable'));
     }
 
     /**
