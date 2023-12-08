@@ -27,5 +27,7 @@ Route::resource('kriteria', KriteriaController::class);
 Route::patch('/kriteria/{id}', [KriteriaController::class, 'update'])->name('kriteria.update');
 Route::resource('alternatif', AlternatifController::class);
 Route::resource('input-nilai', DecisionMatrixController::class);
+Route::post('/kriteria/reset', [KriteriaController::class, 'reset'])->name('kriteria.reset');
+Route::post('/alternatif/reset', [AlternatifController::class,'reset'])->name('alternatif.reset');
 // Route::resource('/penilaian', Penilaian::class);
 // Route::resource('perhitungan', PerhitunganController::class);
