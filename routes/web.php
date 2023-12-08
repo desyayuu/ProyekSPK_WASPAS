@@ -5,7 +5,8 @@ use App\Http\Controllers\CripsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\DecisionMatrixController;
-use App\Http\Controllers\PerhitunganController;
+use App\Http\Controllers\NormalisasiController;
+use App\Http\Controllers\RankingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ Route::get('/', function () {
 Route::resource('kriteria', KriteriaController::class);
 Route::patch('/kriteria/{id}', [KriteriaController::class, 'update'])->name('kriteria.update');
 Route::resource('alternatif', AlternatifController::class);
-Route::resource('input-nilai', DecisionMatrixController::class);
+Route::resource('decision-matrix', DecisionMatrixController::class);
+Route::resource('normalisasi', NormalisasiController::class);
+Route::resource('ranking', RankingController::class);
 // Route::resource('/penilaian', Penilaian::class);
 // Route::resource('perhitungan', PerhitunganController::class);

@@ -22,37 +22,47 @@
 
         <br>
         @if(!empty($matrixTable))
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-3">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-white uppercase bg-[#726274] dark:text-white">
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th>Alternatif</th>
+                        <th scope="col" class="px-6 py-3 rounded-s-lg">
+                            Nama Alternatif 
+                        </th>       
                         @foreach($kriteriaNames as $kriteriaId => $kriteriaName)
-                            <th>{{ $kriteriaName }}</th>
+                        <th scope="col" class="px-6 py-3">
+                       
+                            {{ $kriteriaName }}
                         @endforeach
-                        <th>Aksi</th>
+                        </th>
+                        <th scope="col" class="px-6 py-3 rounded-e-lg">
+                            Action
+                        </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($matrixTable as $alternatifId => $kriteriaValues)
-                        <tr class="bg-white border-b dark:bg-white dark:border-gray-700">
-                            <th class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-gray-900">{{ \App\Models\Alternatif::find($alternatifId)->nama_alternatif }}</th>
-                            @foreach($kriteriaNames as $kriteriaId => $kriteriaName)
-                                <th class=" font-medium text-gray-900 dark:text-gray-900">{{ $kriteriaValues[$kriteriaId] ?? '' }}</th>
-                            @endforeach
-                            <th>
-                                <a href="{{ route('decision-matrix.edit', $alternatifId) }}" class="text-[#41403D] hover:text-[#47384B]">Edit</a>
+                @foreach($matrixTable as $alternatifId => $kriteriaValues)
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="px-6 py-3 rounded-s-lg">
+                            {{ \App\Models\Alternatif::find($alternatifId)->nama_alternatif }}
+                        </th>
+                        @foreach($kriteriaNames as $kriteriaId => $kriteriaName)
+                        <td class="px-6">{{ $kriteriaValues[$kriteriaId] ?? '' }}</td>
+                        @endforeach
+                        <td class="px-6">
+                            <a href="{{ route('decision-matrix.edit', $alternatifId) }}" class="text-[#41403D] hover:text-[#47384B]">Edit</a>
                                 <form method="post" action="{{ route('decision-matrix.destroy', $alternatifId) }}" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-[#41403D] " onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
-                                </form>
-                            </th>
-                        </tr>
-                    @endforeach
-                </tbody>
+                            </form>
+                        </td>
+                    
+                        
+                    </tr>
+            @endforeach
             </table>
         </div>
+        
         @else
         <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

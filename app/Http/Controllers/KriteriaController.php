@@ -12,7 +12,7 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        $kriteria = Kriteria::orderBy('id', 'asc')->paginate(5);
+        $kriteria = Kriteria::orderBy('id', 'asc')->paginate(10);
         return view('kriteria.index_kriteria', compact('kriteria'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
