@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DecisionMatrix;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KriteriaController extends Controller
 {
@@ -72,7 +74,7 @@ class KriteriaController extends Controller
             $kriteria->jenis_kriteria = $request->get('jenis_kriteria');
 
             $kriteria->save();
-            return redirect()->route('kriteria.index') 
+            return redirect()->route('kriteria.index')
             -> with('success', 'Data Kriteria Berhasil Diubah');
     }
 
@@ -84,4 +86,22 @@ class KriteriaController extends Controller
         Kriteria::find($id)->delete();
         return redirect()->route('kriteria.index') -> with('success', 'Data Kriteria Berhasil Dihapus');
     }
+    public function reset()
+    {
+        // Nonaktifkan sementara foreign key constraints
+        DB::statement('SET foreign_key_checks = 0;');
+
+        // Hapus data dari tabel anak (decision_matrix) jika ada
+        DecisionMatrix::truncate();
+
+        // Melakukan TRUNCATE TABLE pada tabel kriteria
+        Kriteria::truncate();
+
+        // Mengaktifkan kembali foreign key constraints
+        DB::statement('SET foreign_key_checks = 1;');
+
+        // Setelah mereset, Anda dapat mengarahkan pengguna ke halaman yang sesuai
+        return redirect()->route('kriteria.index')->with('success', 'Data Kriteria berhasil direset');
+    }
+
 }
