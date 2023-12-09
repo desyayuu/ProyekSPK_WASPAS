@@ -2,7 +2,14 @@
 
 @section('content')
     <div class="container">
-        <h1>Edit Decision Matrix - {{ $alternatif->nama_alternatif }}</h1>
+        <div class="row">
+            <div class="flex flex-col col-lg-6 margin-tb m-6">
+                <div class="pull-left mx-4 py-2">
+                    <p class="text-2xl font-bold"> Edit Decision Matrix - {{ $alternatif->nama_alternatif }}
+                </div>
+            </div>
+        </div>
+        {{-- <h1>Edit Decision Matrix - {{ $alternatif->nama_alternatif }}</h1> --}}
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -29,18 +36,21 @@
                     </thead>
                     <tbody>
                         @foreach ($kriteria as $kriteriaItem)
-                            <tr class="bg-white border-b dark:bg-white dark:border-gray-700">
+                            <tr class="bg-white dark:bg-white">
                                 <td class="px-9 py-2 font-medium text-gray-900 dark:text-gray-900">
-                                    {{ $kriteriaItem->nama_kriteria }}</td>
-                                <td class="px-9 py-2 font-medium text-gray-900 dark:text-gray-900">
-                                    <input type="text" name="value[{{ $kriteriaItem->id }}]" value="{{ $matrixTable[$kriteriaItem->id] ?? '' }}" class="form-control">
+                                    {{ $kriteriaItem->nama_kriteria }}
                                 </td>
+                                <td class="px-9 py-2 font-medium text-gray-900 dark:text-gray-900">
+                                    <input type="text" name="value[{{ $kriteriaItem->id }}]" 
+                                    value="{{ $matrixTable[$kriteriaItem->id] ?? '' }}" 
+                                    class="form-control border-none bg-white dark:bg-white text-gray-900 dark:text-gray-900">
+                                </td>   
                             </tr>
                         @endforeach
                         <tr>
                             <td class="px-6 py-4">
                                 <button type="submit"
-                                    class="text-[#41403D] bg-[#E9E2D0] hover:bg-[#BEBAAE] focus:ring-2 focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Submit</button>
+                                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                             </td>
                         </tr>
                     </tbody>

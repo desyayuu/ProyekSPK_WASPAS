@@ -68,6 +68,7 @@ class KriteriaController extends Controller
             'bobot_kriteria' => 'required',
             'jenis_kriteria' => 'required|in:cost,benefit',
             ]);
+            
             $kriteria = Kriteria::where('id', $id)->first();
             $kriteria->nama_kriteria = $request->get('nama_kriteria');
             $kriteria->bobot_kriteria = $request->get('bobot_kriteria');

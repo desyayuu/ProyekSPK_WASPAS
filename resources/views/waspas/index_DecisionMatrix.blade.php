@@ -10,17 +10,14 @@
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
 
-
         <div class="row">
             <div class="flex flex-col col-lg-6 margin-tb m-6">
-                <div class="pull-left mx-4 py-2">
-                    <p class="text-2xl font-bold"> DECISION MATRIKS</p>
+                <div class="pull-left">
+                    <p class="text-2xl font-bold">DECISION MATRIKS</p></p>
                 </div>
             </div>
         </div>
 
-
-        <br>
         @if(!empty($matrixTable))
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -41,6 +38,9 @@
                     </tr>
                 </thead>
                 @foreach($matrixTable as $alternatifId => $kriteriaValues)
+                @php
+                    $alternatifName = \App\Models\Alternatif::find($alternatifId)->nama_alternatif;
+                @endphp
                     <tr class="bg-white dark:bg-gray-800">
                         <th scope="row" class="px-6 py-3 rounded-s-lg">
                             {{ \App\Models\Alternatif::find($alternatifId)->nama_alternatif }}
@@ -49,15 +49,19 @@
                         <td class="px-6">{{ $kriteriaValues[$kriteriaId] ?? '' }}</td>
                         @endforeach
                         <td class="px-6">
-                            <a href="{{ route('decision-matrix.edit', $alternatifId) }}" class="text-[#41403D] hover:text-[#47384B]">Edit</a>
+                            <div class="flex space-x-2">
+                                <button href="{{ route('decision-matrix.edit', $alternatifId) }}" type="button"  onclick="window.location.href='{{ route('decision-matrix.edit', $alternatifId) }}'" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Edit
+                                </button>
                                 <form method="post" action="{{ route('decision-matrix.destroy', $alternatifId) }}" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-[#41403D] " onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
-                            </form>
+                                <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                    Hapus
+                                </button>
+                                </form>
+                            </div>
                         </td>
-                    
-                        
                     </tr>
             @endforeach
             </table>
@@ -70,9 +74,9 @@
             </svg>
             <span class="sr-only">Info</span>
             <div>
-              <span class="font-medium">Danger alert!</span>Silahkan Isi Kriterian dan Alternatif Terlebih Dahulu. 
+              <span class="font-medium">Danger alert!</span> Silahkan Isi Kriterian dan Alternatif Terlebih Dahulu. 
             </div>
-          </div>
+        </div>
         @endif
     </div>
 @endsection
