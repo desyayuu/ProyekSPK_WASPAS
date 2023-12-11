@@ -16,22 +16,23 @@ class DecisionMatrixController extends Controller
      */
     public function index()
     {
-        //
+        //Ambil Semua Data di tabel decision_matrix
         $decision_matrix = DecisionMatrix::all();
-
 
         #Jika Belum Upload Alternatif dan Kriteria 
         if ($decision_matrix->isEmpty()) {
-            return view('waspas.index_DecisionMatrix')->with('error', '
-            Silahkan isi Kriteria dan Alternatif Terlebih Dahulu');
+            return view('waspas.index_DecisionMatrix')->with('error');
         }
 
+        #Membuat Array untuk simpan nilai decision matrix
         $matrixTable = [];
 
+        #looping untuk mendefinisikan nilai data sesuai dengan id alternatif dan kriteria
         foreach ($decision_matrix as $data) {
             $matrixTable[$data->id_alternatif][$data->id_kriteria] = $data->value;
         }
 
+        #Ambil nama kriteria 
         $kriteriaNames = DB::table('kriteria')->pluck('nama_kriteria', 'id')->toArray();
         return view('waspas.index_DecisionMatrix', compact('matrixTable', 'kriteriaNames'));
     }

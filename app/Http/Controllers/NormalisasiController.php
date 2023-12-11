@@ -13,7 +13,7 @@ class NormalisasiController extends Controller
 
         // Jika tidak ada data, kembalikan ke view dengan pesan
         if ($decisionMatrix->isEmpty()) {
-            return view('waspas.indexNormalisasi')->with('error', 'Tidak ada data Normalisasi yang tersimpan.');
+            return view('waspas.index_Normalisasi')->with('error', 'Tidak ada data Normalisasi yang tersimpan.');
         }
 
         // Buat array untuk menyimpan data yang akan ditampilkan di view

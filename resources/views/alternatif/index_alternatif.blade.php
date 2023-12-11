@@ -15,7 +15,7 @@
 </div>
 @endif
 <!-- Modal toggle -->
-
+<div class="flex items-center space-x-4 mb-4">
 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative overflow-x-auto shadow-md sm:rounded-lg mx-4 my-4" type="button">
     Tambah Alternatif
   </button>
@@ -66,13 +66,15 @@
       </div>
   </div>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
     <button onclick="confirmReset()" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         Reset
     </button>
     <form method="post" action="{{ route('alternatif.reset') }}" id="resetForm" style="display:none;">
         @csrf
     </form>
+    </div>
+</div>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>

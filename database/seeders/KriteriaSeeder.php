@@ -44,7 +44,7 @@ class KriteriaSeeder extends Seeder
                 'id' => '5',
                 'nama_kriteria' => 'Status Penerimaan Beasiswa',
                 'bobot_kriteria' => 0.25,
-                'jenis_kriteria' => 'benefit'
+                'jenis_kriteria' => 'cost'
             ],
             [
                 'id' => '6',
@@ -56,7 +56,7 @@ class KriteriaSeeder extends Seeder
                 'id' => '7',
                 'nama_kriteria' => 'Jumlah Tanggungan',
                 'bobot_kriteria' => 0.05,
-                'jenis_kriteria' => 'cost'
+                'jenis_kriteria' => 'benefit'
             ],
             [
                 'id' => '8',
@@ -67,7 +67,7 @@ class KriteriaSeeder extends Seeder
             [
                 'id' => '9',
                 'nama_kriteria' => 'Projek',
-                'bobot_kriteria' => 0.20, 
+                'bobot_kriteria' => 0.05, 
                 'jenis_kriteria' => 'benefit'
             ],
             [

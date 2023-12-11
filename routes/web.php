@@ -32,5 +32,4 @@ Route::resource('normalisasi', NormalisasiController::class);
 Route::resource('ranking', RankingController::class);
 Route::post('/kriteria/reset', [KriteriaController::class, 'reset'])->name('kriteria.reset');
 Route::post('/alternatif/reset', [AlternatifController::class,'reset'])->name('alternatif.reset');
-// Route::resource('/penilaian', Penilaian::class);
-// Route::resource('perhitungan', PerhitunganController::class);
+Route::patch('/decision-matrix/{id}', [DecisionMatrixController::class, 'update'])->name('decision-matrix.update');
