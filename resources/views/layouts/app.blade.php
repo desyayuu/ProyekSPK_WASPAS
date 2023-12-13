@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MABAC SPK</title>
+    <title>Waspas SPK</title>
 
     <!-- Font Awosome Library -->
     <link
@@ -36,7 +36,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="font-fontPage">
-    
+
 
 <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -48,9 +48,9 @@
                  <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
            </button>
-          <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
+          <a href="#" class="flex ms-2 md:me-24">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 me-3" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"><defs><linearGradient id="linear-gradient" x1="15.88" y1="32.12" x2="24.12" y2="23.88" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d3e6f5"/><stop offset="1" stop-color="#f0f7fc"/></linearGradient><linearGradient id="linear-gradient-2" x1="27.88" y1="32.12" x2="36.12" y2="23.88" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-3" x1="39.88" y1="32.12" x2="48.12" y2="23.88" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-4" x1="15.88" y1="45.12" x2="24.12" y2="36.88" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-5" x1="27.88" y1="45.12" x2="36.12" y2="36.88" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-6" x1="36.63" y1="54.87" x2="51.37" y2="40.13" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-7" x1="15.88" y1="58.12" x2="24.12" y2="49.88" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-8" x1="27.88" y1="58.12" x2="36.12" y2="49.88" xlink:href="#linear-gradient"/><style>.cls-11{fill:#b4cde1}</style></defs><g id="Calculator"><rect x="9" y="1" width="46" height="62" rx="7" style="fill:#54a5ff"/><rect x="15" y="6" width="34" height="14" rx="3" style="fill:#d7e9f7"/><rect x="15" y="23" width="10" height="10" rx="3" style="fill:url(#linear-gradient)"/><rect x="27" y="23" width="10" height="10" rx="3" style="fill:url(#linear-gradient-2)"/><rect x="39" y="23" width="10" height="10" rx="3" style="fill:url(#linear-gradient-3)"/><rect x="15" y="36" width="10" height="10" rx="3" style="fill:url(#linear-gradient-4)"/><rect x="27" y="36" width="10" height="10" rx="3" style="fill:url(#linear-gradient-5)"/><rect x="39" y="36" width="10" height="23" rx="3" style="fill:url(#linear-gradient-6)"/><rect x="15" y="49" width="10" height="10" rx="3" style="fill:url(#linear-gradient-7)"/><rect x="27" y="49" width="10" height="10" rx="3" style="fill:url(#linear-gradient-8)"/><path class="cls-11" d="M20 16a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zM25 16a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zM30 16a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1z"/></g></svg>
+            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">waspas.</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -84,7 +84,7 @@
       </div>
     </div>
   </nav>
-  
+
   <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
      <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
@@ -112,7 +112,7 @@
                     <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
                  </svg>
                  <span class="flex-1 ms-3 whitespace-nowrap">Alternatif</span>
-                
+
               </a>
            </li>
            <li>
@@ -152,7 +152,7 @@
         </ul>
      </div>
   </aside>
-  
+
   <div class="p-8 sm:ml-64">
      <div class="mt-14">
                 @yield('content')

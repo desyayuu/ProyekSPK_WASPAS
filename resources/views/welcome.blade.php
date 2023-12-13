@@ -17,8 +17,6 @@
         mengevaluasi beberapa alternative dalam beberapa kriteria keputusan. </p>
     </p>
 </div>
-
-
 <div class="w-full p-4 mt-3 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
     <p class="text-base text-gray-500 sm:text-base dark:text-gray-400 text-justify ">
        <h6>
@@ -38,56 +36,50 @@
         <div class="text-base text-gray-500 sm:text-base dark:text-gray-400 text-justify">
             <ul class="p-3 list-decimal">
                 <li>Pembuatan matriks</li>
-                <table class="w-full border border-gray-300 dark:border-gray-500">
-                    <thead>
-                        <tr>
-                            <!-- Kolom header (Anda dapat menyesuaikan sesuai kebutuhan) -->
-                            <th class="border border-gray-300 dark:border-gray-500 p-2">Kriteria 1</th>
-                            <th class="border border-gray-300 dark:border-gray-500 p-2">Kriteria 2</th>
-                            <!-- ... Tambahkan kolom header lainnya sesuai dengan jumlah kriteria ... -->
-                            <th class="border border-gray-300 dark:border-gray-500 p-2">Kriteria N</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Baris-baris matriks (Anda dapat menyesuaikan sesuai kebutuhan) -->
-                        <tr>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X11</td>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X12</td>
-                            <!-- ... Tambahkan sel matriks lainnya sesuai dengan jumlah kriteria ... -->
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X1N</td>
-                        </tr>
-                        <tr>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X21</td>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X22</td>
-                            <!-- ... Tambahkan sel matriks lainnya sesuai dengan jumlah kriteria ... -->
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">X2N</td>
-                        </tr>
-                        <!-- ... Tambahkan baris matriks lainnya sesuai dengan jumlah alternatif ... -->
-                        <tr>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">XN1</td>
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">XN2</td>
-                            <!-- ... Tambahkan sel matriks lainnya sesuai dengan jumlah kriteria ... -->
-                            <td class="border border-gray-300 dark:border-gray-500 p-2">XNN</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="w-full sm:w-auto bg-blue-500  text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 mb-3 mt-2">
+                    <div class="my-1">
+                        <img src="assets\image\matrix.jpeg" alt="" class="w-64 h-auto">
+                    </div>
+                    </div>
                 <li>Menormalisasi Nilai <b>Rij </b>dengan rumus sebagai berikut:</li>
+               <div class=" my-3 space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+                <a href="#" class="w-full sm:w-auto bg-blue-500  text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5">
 
-                <li>Menghitung data <b>nilai alternatif (Qi) </b> dengan menggunakan rumus berikut:</li>
+                    <div class="text-left rtl:text-right">
+                        <div class="text-left rtl:text-right">
+                            <div class="-mt-1 font-sans text-sm font-semibold text-center">Kriteria Benefit</div>
+                        </div>
+                        <div class="mt-2">
+                            <img src="assets\image\benefit.jpeg" alt="" class="w-28 h-auto">
+                        </div>
+                        </div>
+                </a>
+
+        <a href="#" class="w-full sm:w-auto bg-blue-500  text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5">
+
+            <div class="text-left rtl:text-right">
+                <div class="text-left rtl:text-right">
+                    <div class="-mt-1 font-sans text-sm font-semibold text-center">Kriteria Cost</div>
+                </div>
+                <div class="mt-2">
+                    <img src="assets\image\cost.jpeg" alt="" class="w-28 h-auto">
+                </div>
+                </div>
+        </a>
+    </div>
+                <li class="mt-3">Menghitung data <b>nilai alternatif (Qi) </b> dengan menggunakan rumus berikut:</li>
+                <div class="w-full sm:w-auto bg-blue-500  text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 my-2">
+                    <div class="my-1">
+                        <img src="assets\image\Qi.jpeg" alt="" class="w-64 h-auto">
+                    </div>
+                    </div>
+                <p>Nilai Qi yang terbaik merupakan nilai yang tertinggi.</p>
             </ul>
         </div>
-    </p>
 
-
-</div>
-
-<div class="mt-3 rounded border  w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <h6 class="mb-3">
-        <b class="text-blue-500 sm:text-lg">Jurnal Referensi</b>
-       </h6>
+<div class="p-3 mt-3 rounded border  w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
     <iframe src="{{asset('assets/jurnal/jurnal_referensi.pdf')}}" class="w-full h-96 rounded-lg" frameborder="0"></iframe>
 </div>
-
 
 
 @endsection
