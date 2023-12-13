@@ -11,7 +11,7 @@
 @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
 @endif
-<div class="relative overflow-x-auto">
+<div class="relative overflow-x-auto pt-4">
     <table class="w-10text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -34,7 +34,9 @@
                     
 
 <!-- Modal toggle -->
-<button data-modal-target="crud-modal-{{ $alternatifItem->id }}" data-modal-toggle="crud-modal-{{ $alternatifItem->id }}" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+<button data-modal-target="crud-modal-{{ $alternatifItem->id }}" data-modal-toggle="crud-modal-{{ $alternatifItem->id }}" class="block text-white bg-first
+     hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-first
+     dark:focus:ring-blue-800" type="button">
     Input Nilai 
 </button>
   <!-- Main modal -->
@@ -68,7 +70,9 @@
                     @endforeach
                 </div>
                   
-                  <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button type="submit" class="text-white inline-flex items-center bg-first
+                   hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-first
+                   dark:focus:ring-blue-800">
                       <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                       Submit
                   </button>
