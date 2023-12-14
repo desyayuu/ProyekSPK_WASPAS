@@ -29,17 +29,38 @@ class KriteriaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama_kriteria' => 'required',
-            'bobot_kriteria' => 'required',
-            'jenis_kriteria' => 'required|in:cost,benefit',
-            ]);
-            Kriteria::create($request->all());
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'nama_kriteria' => 'required',
+    //         'bobot_kriteria' => 'required',
+    //         'jenis_kriteria' => 'required|in:cost,benefit',
+    //         ]);
+    //         Kriteria::create($request->all());
 
-            return redirect()->route('kriteria.index')->with('success', 'Kriteria Berhasil Ditambahkan');
+    //         return redirect()->route('kriteria.index')->with('success', 'Kriteria Berhasil Ditambahkan');
+
+            
+    // }
+    public function store(Request $request)
+{
+    $request->validate([
+        'nama_kriteria' => 'required',
+        'bobot_kriteria' => 'required|numeric',
+        'jenis_kriteria' => 'required|in:cost,benefit',
+    ]);
+
+    // Validasi tambahan untuk memastikan total bobot tidak melebihi 1
+    $totalBobot = Kriteria::sum('bobot_kriteria') + $request->input('bobot_kriteria');
+    if ($totalBobot <= 1) {
+        Kriteria::create($request->all());
+        return redirect()->route('kriteria.index')->with('success', 'Kriteria Berhasil Ditambahkan');
+    } 
+    else {
+        return redirect()->route('kriteria.index')->with('error', 'Total Bobot Kriteria melebihi 1. Tidak dapat menambah kriteria baru.');
     }
+}
+
 
     /**
      * Display the specified resource.

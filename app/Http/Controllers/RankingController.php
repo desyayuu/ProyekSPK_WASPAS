@@ -17,8 +17,8 @@ class RankingController extends Controller
         $this->normalisasiController = $normalisasiController;
     }
 
-    public function index()
-{
+    #Menampilkan Halaman Peringat 
+    public function index(){
     $normalisasiValues = $this->normalisasiController->index()->getData();
 
     // Check if $normalisasiValues is an array and has the 'normalisasiTable' key

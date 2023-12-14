@@ -150,13 +150,14 @@ class DecisionMatrixController extends Controller
             'value.*' => 'required|numeric', // Validasi untuk setiap nilai
         ]);
 
+        // dd($request);
+
         try {
             foreach ($request->value as $id_kriteria => $value) {
                 DecisionMatrix::where('id_alternatif', $id_alternatif)
                     ->where('id_kriteria', $id_kriteria)
                     ->update(['value' => $value]);
             }
-
             return redirect()->route('decision-matrix.index')->with('success', 'Nilai Decision Matrix berhasil diperbarui.');
         } catch (\Exception $e) {
             return redirect()->route('decision-matrix.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
