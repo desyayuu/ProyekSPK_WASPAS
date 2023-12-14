@@ -65,7 +65,6 @@
     </div>
 </div>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
     <button onclick="confirmReset()" class="text-white bg-fifth hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-first dark:focus:ring-blue-800">
         Reset
     </button>
@@ -73,7 +72,6 @@
         @csrf
     </form>
     </div>
-</div>
 <div class="max-w-screen-md ml-4">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">

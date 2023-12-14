@@ -32,6 +32,7 @@ class NormalisasiController extends Controller
     }
 
     public function calculateNormalized($value, $idKriteria){
+        
         $jenisKriteria = Kriteria::where('id', $idKriteria)->value('jenis_kriteria');
         $data = DecisionMatrix::where('id_kriteria', $idKriteria)->pluck('value')->toArray();
 
