@@ -20,22 +20,40 @@
     </div>
 @endif
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-@endif
-
 @if ($message = Session::get('error'))
     <div class="alert alert-danger">
         <p>{{ $message }}</p>
     </div>
 @endif
 
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
+@if ($totalBobot < 1)
+    <div class="alert alert-danger">
+        Total Bobot Kriteria kurang 1. Masukkan Kembali Kriteria dan Bobotnya
+    </div>
+@elseif($totalBobot ==1) 
+<div class="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <span class="sr-only">Info</span>
+    <div>
+      <span class="font-medium">Info alert!</span> Bobot Kriteria sudah sama dengan 1, Silakan isi Alternatif
+    </div>
+  </div>
+  @elseif($totalBobot >1)
+  <div class="alert alert-danger">
+    Total Bobot Kriteria lebih dari 1. Perbaiki Bobot Kriteria!
+</div>
+@endif
 
 <!-- Modal toggle -->
-<div class="flex items-center space-x-4">
+<div class="flex items-center">
 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-first hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 relative overflow-x-auto shadow-md sm:rounded-lg mx-4 my-4" type="button">
     Tambah Kriteria
 </button>

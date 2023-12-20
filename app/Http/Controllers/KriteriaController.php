@@ -12,11 +12,21 @@ class KriteriaController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     $kriteria = Kriteria::orderBy('id', 'asc')->paginate(10);
+    //     return view('kriteria.index_kriteria', compact('kriteria'))->with('i', (request()->input('page', 1) - 1) * 5);
+    // }
     public function index()
-    {
-        $kriteria = Kriteria::orderBy('id', 'asc')->paginate(10);
-        return view('kriteria.index_kriteria', compact('kriteria'))->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+{
+    $kriteria = Kriteria::orderBy('id', 'asc')->paginate(5);
+
+    // Calculate the total weight of criteria
+    $totalBobot = Kriteria::sum('bobot_kriteria');
+
+    return view('kriteria.index_kriteria', compact('kriteria', 'totalBobot'))->with('i', (request()->input('page', 1) - 1) * 5);
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -73,10 +83,21 @@ class KriteriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $kriteria = Kriteria::find($id);
         return view('kriteria.index_kriteria', compact('kriteria'));
+
+        $totalBobot = Kriteria::sum('bobot_kriteria') + $request->input('bobot_kriteria');
+    if ($totalBobot <= 1) {
+        Kriteria::create($request->all());
+        return redirect()->route('kriteria.index')->with('success', 'Kriteria Berhasil Ditambahkan');
+    } 
+    else {
+        return redirect()->route('kriteria.index')->with('error', 'Total Bobot Kriteria melebihi 1. Tidak dapat menambah kriteria baru.');
+    }
+
+        
     }
 
     /**
